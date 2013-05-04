@@ -1,11 +1,22 @@
 import java.util.*;
 class BvgParser {
   private String[] _rawData;
+  
   public BvgParser() {
   }
 
   private float getCoordFromString( String s ) {
     return float( s.replaceAll("^\"|\"$", "") );
+  }
+  
+  private boolean inBerlinX( float x )
+  {
+    return x != Float.NaN && x > 49.0f && x < 55.0f;
+  }
+  
+  private boolean inBerlinY( float y )
+  {
+    return y != Float.NaN && y > 10.0f && y < 48.0f;
   }
 
   public ArrayList<PVector> parse() {
@@ -15,11 +26,10 @@ class BvgParser {
       String[] line = split(_rawData[i], "," );
       float x = getCoordFromString( line[4] );
       float y = getCoordFromString( line[5] );
-
-      if ( x != Float.NaN && y != Float.NaN ) {
+      if ( inBerlinX(x) && inBerlinY(y) ) {
         stops.add( new PVector(getCoordFromString(line[4]), getCoordFromString(line[5]) ) );
       }
-    }
+    }    
     return stops;
   }
 
