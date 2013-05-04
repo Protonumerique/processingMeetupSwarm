@@ -5,15 +5,22 @@
 // Via Reynolds: http://www.red3d.com/cwr/steer/CrowdPath.html
 
 // Using this variable to decide whether to draw all the stuff
+
 boolean debug = false;
 
 
 // A path object (series of connected points)
 Path path;
 
+
+
 // Two vehicles
 ArrayList<Vehicle> vehicles;
 int numStops = 20;
+
+// color transformation matrix used to map XYZ position into RGB values
+int DIM = 800;
+ArrayList colors;
 
 void setup() {
   size(1200,800);
@@ -25,6 +32,11 @@ void setup() {
   vehicles = new ArrayList<Vehicle>();
   for (int i = 0; i < 120; i++) {
     newVehicle(random(width),random(height));
+  }
+  colors = new ArrayList();
+  for (int i = 0; i < numStops; i++) {
+    color c = color(random(200),random(20),random(20));
+    colors.add(c);
   }
 }
 
@@ -44,7 +56,7 @@ void draw() {
 
   // Instructions
   fill(0);
-  text("Hit 'd' to toggle debugging lines.  Click the mouse to generate new vehicles.",10,height-16);
+  //text("Hit 'd' to toggle debugging lines.  Click the mouse to generate new vehicles.",10,height-16);
 }
 
 void newPath() {
