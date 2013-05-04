@@ -1,13 +1,29 @@
 
+ArrayList<PVector> stops;
+
+PVector min, max, range;
 
 void setup() {
-  size(600, 400);
+  fill(255);
+  size(900, 900);
   BvgParser bvgParser = new BvgParser();
-  ArrayList<PVector> stops = bvgParser.parse();
-  print(stops);
+  stops = bvgParser.parse();
+  print(stops.size());
+  
+  min = bvgParser.MinPositions(stops);
+  max = bvgParser.MaxPositions(stops);
+  
+  range = PVector.sub(max, min);
+  noStroke();
+  println(  );
 }
 
 void draw() {
   background(0);
   
+  for( PVector s : stops ) {
+    float x = (s.x - min.x)/range.x;
+    float y = (s.y - min.y)/range.y;
+    ellipse( x * width , y * height , 2, 2 );
+  }
 }

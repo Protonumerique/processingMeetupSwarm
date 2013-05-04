@@ -1,8 +1,14 @@
 import java.util.*;
 class BvgParser {
+  
+  public PVector berlinCoord;
+  
+  private float threshold = 0.1f;
+  
   private String[] _rawData;
   
   public BvgParser() {
+    berlinCoord = new PVector(52.519171f, 13.4060912f); 
   }
 
   private float getCoordFromString( String s ) {
@@ -11,12 +17,12 @@ class BvgParser {
   
   private boolean inBerlinX( float x )
   {
-    return x != Float.NaN && x > 49.0f && x < 55.0f;
+    return x != Float.NaN && Math.abs(berlinCoord.x - x) < threshold;
   }
   
   private boolean inBerlinY( float y )
   {
-    return y != Float.NaN && y > 10.0f && y < 48.0f;
+    return y != Float.NaN && Math.abs(berlinCoord.y - y) < threshold;
   }
 
   public ArrayList<PVector> parse() {
