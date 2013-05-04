@@ -219,10 +219,11 @@ class Vehicle {
   void render() {
     // Simpler boid is just a circle
     fill(75);
-    stroke(0);
+    stroke(175);
     pushMatrix();
     translate(location.x, location.y);
-    ellipse(0, 0, r, r);
+    //ellipse(0, 0, r, r);
+    point(0,0);
     popMatrix();
   }
 

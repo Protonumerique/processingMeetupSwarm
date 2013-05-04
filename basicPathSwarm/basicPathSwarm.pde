@@ -16,7 +16,7 @@ ArrayList<Vehicle> vehicles;
 int numStops = 20;
 
 void setup() {
-  size(640,360);
+  size(1200,800);
   smooth();
   // Call a function to generate new Path object
   newPath();
@@ -29,10 +29,12 @@ void setup() {
 }
 
 void draw() {
-  background(255);
+  //background(255);
+  fill(30,10);
+  rect(0,0, width, height);
   // Display the path
-  path.display();
-
+  //path.display();
+  
   for (Vehicle v : vehicles) {
     // Path following and separation are worked on in this function
     v.applyBehaviors(vehicles,path);
