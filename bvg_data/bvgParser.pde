@@ -1,3 +1,4 @@
+import java.util.*;
 class BvgParser {
   private String[] _rawData;
   public BvgParser() {
@@ -45,9 +46,9 @@ class BvgParser {
     for (Iterator<PVector> i = stops.iterator(); i.hasNext();) {
 
       PVector v = (PVector)i.next();
-      if (v.x > ma_x)mi_x=v.x;
-      if (v.y > ma_y)mi_y=v.y;
-      maxXY.set(mi_x, mi_y, 0);
+      if (v.x > ma_x)ma_x=v.x;
+      if (v.y > ma_y)ma_y=v.y;
+      maxXY.set(ma_x, ma_y, 0);
     }
     return maxXY;
   }
