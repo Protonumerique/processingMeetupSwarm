@@ -25,36 +25,7 @@ class BvgParser {
   }
   
   
-  public PVector MinPositions(ArrayList<PVector> stops){
-        
-    float mi_x = Float.MAX_VALUE;
-    float mi_y = Float.MAX_VALUE;
-    PVector minXY = new PVector();
-     for (Iterator<PVector> i = stops.iterator(); i.hasNext();) {
-     
-       PVector v = (PVector)i.next();
-       if(v.x < mi_x)mi_x=v.x;
-       if(v.y < mi_y)mi_y=v.y;
-       minXY.set(mi_x, mi_y,0);
-     }
-     return minXY;
-    
-  }
-  
-  public PVector MaxPositions(ArrayList<PVector> stops){
-        
-    float ma_x = -Float.MAX_VALUE;
-    float ma_y = -Float.MAX_VALUE;
-     PVector maxXY = new PVector();
-     for (Iterator<PVector> i = stops.iterator(); i.hasNext();) {
-     
-       PVector v = (PVector)i.next();
-       if(v.x > ma_x)mi_x=v.x;
-       if(v.y > ma_y)mi_y=v.y;
-       maxXY.set(mi_x, mi_y,0);
-     }
-     return maxXY;
-  }
+
 }
 
 

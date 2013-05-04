@@ -7,6 +7,7 @@ void setup() {
   fill(255);
   size(900, 900);
   BvgParser bvgParser = new BvgParser();
+
   stops = bvgParser.parse();
   print(stops.size());
   
@@ -15,7 +16,8 @@ void setup() {
   
   range = PVector.sub(max, min);
   noStroke();
-  println(  );
+
+
 }
 
 void draw() {
